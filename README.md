@@ -1,2 +1,2 @@
-# RocketElevatorsDigitalPresence
-Erica Litzenberger repo Genesis
+# GenesisProgram
+Repository holding the template to be used and edited for the Genesis Website
