@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Rocket Elevators</title>
+		<meta name="description" content="" />
+		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+
+		<!-- mobile settings -->
+		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+		<!-- WEB FONTS : use %7C instead of | (pipe) -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+		<!-- CORE CSS -->
+		<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+		<!-- THEME CSS -->
+		<link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
+
+		<!-- PAGE LEVEL SCRIPTS -->
+		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
+		<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
+	</head>
+
+
+
+    <div id="wrapper">
+        <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+            <!-- TOP NAV -->
+            <header id="topNav">
+                <div class="container">
+
+                    <!-- Mobile Menu Button -->
+                    <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Logo -->
+                    <a class="logo float-left scrollTo" href="#top">
+                        <img src="RocketElevatorAssets/R2.png" alt="logo" />
+                    </a>
+
+                    <!-- 
+                        Top Nav 
+                        
+                        AVAILABLE CLASSES:
+                        submenu-dark = dark sub menu
+                    -->
+                    <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+                        <nav class="nav-main">
+
+                            <!-- 
+                                .nav-onepage
+                                Required for onepage navigation links
+                                
+                                Add .external for an external link!
+                            -->
+                            <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                                <li class="active"><!-- HOME -->
+                                    <a href="#home">
+                                        HOME
+                                    </a>
+                                </li>
+                                <li><!-- SERVICES -->
+                                    <a href="#services">
+                                        SERVICES
+                                    </a>
+                                </li>
+                                <li><!-- WORK -->
+                                    <a href="#portfolio">
+                                        PORTFOLIO
+                                    </a>
+                                </li>
+                                <li><!-- NEWS -->
+                                    <a href="#news">
+                                        NEWS
+                                    </a>
+                                </li>
+                                <li><!-- CLIENTS -->
+                                    <a href="#clients">
+                                        CLIENTS
+                                    </a>
+                                </li>
+                                <li><!-- CONTACT -->
+                                    <a href="#contact">
+                                        CONTACT
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </nav>
+                    </div>
+
+                </div>
+            </header>
+
+        </div>
+
+
+
+    <!--Form1-->
+
+    <body>
+        <header class="text-center mb-40">
+            <h2>Get Quote Today!</h2>
+            <p class="lead font-lato">Please feel free to send message anytime</p>
+            <hr />
+        </header>
+            <form id="form">
+                <!-- <fieldset> -->
+            <div id="Building-type" class="">
+                <ul>
+                    <li class="btn btn-outline-dark btn-lg" >
+                        <a id="res" value="residential" onclick="displayRes()">Residential</a>
+                    </li>
+                    <li  class="btn btn-outline-dark btn-lg">
+                        <a id="comm" value="commercial" onclick="displayComm()">Commercial</a>
+                    </li>
+                    <li  class="btn btn-outline-dark btn-lg">
+                        <a id="corp" value="corporate" onclick="displayCorp()">Corporate</a>
+                    </li>
+                    <li  class="btn btn-outline-dark btn-lg">
+                        <a id="hybrid1" value="hybrid1" onclick="displayHybrid()">Hybrid</a>
+                    </li>
+                </ul>
+            </div>
+                        <div id="number-of-apartments" style="display: none;">
+                            <label >Number of Apartments</label>
+                            <input name="res-apts" type="number" id="number-of-apartments-input" oninput = "corpElevators()">
+                        </div>
+
+                        <div id="number-of-floors"style="display: none;">
+                            <label >Number of floors (NOT Including Basements)</label>
+                            <input class="levels" name="res-floors" type="number" id="number-of-floors-input" oninput = "corpElevators()" >
+                        </div>
+
+                        <div id="number-of-basements" style="display: none;">
+                            <label  >Number of basements</label>
+                            <input name="res-basements" type="number" id="number-of-basements-input" oninput = "corpElevators()">
+                        </div>
+            
+                        <div id="number-of-companies" style="display: none;">
+                            <label for="commercial" id="comm-companies">Number of distinct businesses</label>
+                            <input name="companies" type="number"> 
+                        </div>
+
+                        <div id="number-of-parking-spots" style="display: none;">
+                            <label for="commercial" id="comm-parking-spots" >Number of parking spots</label>
+                            <input name="c-parking" type="number">
+                        </div>
+
+                        <div id="number-of-elevators" style="display: none;">
+                            <label for="commercial" id="comm-elevators">Number of Elevators</label>
+                            <input  name="commElevators" type="number" id='commElevators' >
+                        </div>             
+                        
+                        <div id="number-of-corporations" style="display: none;">
+                            <label for="corporate" id="number-of-corporations">Number of separate tenant companies</label>
+                            <input name="corp-tenants" type="number" >
+                        </div>
+
+                        <div id="maximum-occupancy" style="display: none;">
+                            <label for="corporate" >maximum number of occupants per floor</label>
+                            <input name="corp-occp" type="number" id="corp-max-occupancy-input">
+                        </div>
+                        
+                        <div id="business-hours" style="display: none;">
+                            <label for="hybrid" id="hybrid-business-hours">Number of hours of activity of the building </label>
+                            <input name="hybrid-hours" type="number">
+                        </div>
+
+             <!-- </fieldset> -->
+            </form> 
+
+
+    <!--Product Type-->
+   <div id="products">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="standard">
+        <label class="form-check-label">
+          Standard
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="premium" >
+        <label class="form-check-label">
+          Premium
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="excelium">
+        <label class="form-check-label">
+          Excelium
+        </label>
+      </div>
+</div>
+
+
+    <!--result Inputs-->
+        <div class="col-md-5">
+            <div>
+                <label>Number of Elevators</label>
+                <input id="elevatorAmount" readonly></input>
+            </div>
+
+            <div id="elevator-unit-price">
+                <label>Unit Price</label>
+                <input id="unitPrice" readonly></input>
+            </div>
+
+            <div id="elevator-total-price">
+                <label>Total Price</label>
+                <input id="totalPrice" readonly></input>
+            </div>
+            
+            <div id="installation-fees">
+                <label>Install Fees</label>
+                <input id="installFee" readonly></input>
+            </div>
+
+            <div id="final-price">
+                <label>Final Price</label>
+                <input id="finalPrice" readonly ></input>
+            </div>
+        
+        </div>
+    
+
+    </body>  
+
+
+
+    <!-- Contact INFO -->
+						<div class="col-md-4 col-sm-4">
+							<p>
+								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 136 4th St N, St. Petersburg, USA</span>
+								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:1800-555-1234">(418)-555-1234</a></span>
+								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">info@codeboxx.biz</a></span>
+							</p>
+
+						</div>
+			</section>
+			<!-- /CONTACT -->
+
+    
+    <!-- FOOTER -->
+		    <footer id="footer">
+				<div class="container">
+
+
+					<div class="row">
+
+						<!-- col #1 -->
+						<div class="col-md-8">
+
+							<h3 class="letter-spacing-1">WHY US?</h3>
+
+							<!-- Small Description -->
+							<p>We have the conviction that we create the most innovative and reliable products on the market. <br> Contact us today for any questions you might have.</p>
+							<h2>(418)-555-1234</h2>
+						</div>
+						<!-- /col #1 -->
+
+						<!-- col #2 -->
+						<div class="col-md-4">
+							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+							<!-- Newsletter Form -->
+							<p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+							<!-- <form >
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="submit">Subscribe</button>
+									</span>
+								</div>
+							</form> -->
+							<!-- /Newsletter Form -->
+						</div>
+						<!-- /col #2 -->
+					</div>
+
+
+			    </div>
+
+				<div class="copyright">
+					<div class="container">
+						<ul class="float-right m-0 list-inline mobile-block">
+							<li><a href="#">Terms &amp; Conditions</a></li>
+							<li>&bull;</li>
+							<li><a href="#">Privacy</a></li>
+						</ul>
+						&copy; All Rights Reserved, Company LTD
+					</div>
+				</div>
+
+		    </footer>
+    <!-- /FOOTER -->
+</div>
+    <!--SCRIPT-->
+    <script>
+       const aptNum = document.getElementById("number-of-apartments")
+       const floorNum = document.getElementById("number-of-floors")
+       const baseNum = document.getElementById("number-of-basements")
+       const numOfCompanies = document.getElementById("number-of-companies")
+       const numParking = document.getElementById("number-of-parking-spots")
+       const numElev = document.getElementById("number-of-elevators")
+       const numCorp = document.getElementById ("number-of-corporations")
+       const maxOccupancy = document.getElementById("maximum-occupancy")
+       const businessHours = document.getElementById("business-hours")
+       const elevatorAmount = document.getElementById("elevatorAmount")
+       const elevator_Amount = document.getElementById("elevatorAmount")
+
+
+        const test = document.getElementById('number-of-apartments-input')
+        
+        const disButton = document.getElementById('Building-type');
+        const res = document.getElementById('residential');
+        const comm = document.getElementById('commercial');
+        const corp = document.getElementById('corporate');
+        const hybrid = document.getElementById('hybrid');
+
+        function displayRes() {
+            hideAll(); 
+            aptNum.style['display']= 'block'
+            floorNum.style['display']= 'block'
+            baseNum.style['display']= 'block'
+            
+        }
+
+        function displayComm() {
+            hideAll();
+            numOfCompanies.style['display']= 'block'
+            floorNum.style['display']= 'block'
+            baseNum.style['display']= 'block'
+            numParking.style['display']= 'block'
+            numElev.style['display']= 'block'
+
+        }
+
+        function displayCorp() {
+            hideAll();
+            floorNum.style['display']= 'block'
+            baseNum.style['display']= 'block'
+            numCorp.style['display']= 'block'
+            numParking.style['display']= 'block'
+            maxOccupancy.style['display']= 'block'
+        }
+        
+        function displayHybrid() {
+            hideAll();
+            businessHours.style['display']= 'block'
+            floorNum.style['display']= 'block'
+            baseNum.style['display']= 'block'
+            numOfCompanies.style['display']= 'block'
+            numParking.style['display']= 'block'
+            maxOccupancy.style['display']= 'block'
+
+        }
+
+
+        function hideAll() {
+            aptNum.style['display']= 'none'
+            floorNum.style['display']= 'none'
+            businessHours.style['display']= 'none'
+            baseNum.style['display']= 'none'
+            numOfCompanies.style['display']= 'none'
+            numParking.style['display']= 'none'
+            numElev.style['display']= 'none'
+            numCorp.style['display']= 'none'
+            maxOccupancy.style['display']= 'none'
+        }
+
+ //change query selector
+ 
+ 
+        
+            let commercialEle = document.getElementById("commElevators");
+            commercialEle.addEventListener('input', function() {
+                elevatorAmount.value = commercialEle.value;
+    });
+
+//     const product = document.getElementById('products');
+//     product.addEventListener('change', (e) => {
+//         if(e.target.id === 'standard') {
+//             document.getElementById('unitPrice').value = 7565;
+//             document.getElementById('installFee').value = .1;
+//             totalPrice();
+//             finalPrice();
+//             fees(); 
+//     }   if(e.target.id === 'premium') {
+//             document.getElementById('unitPrice').value = 12345;
+//             document.getElementById('installFee').value = .13; 
+//             totalPrice();
+//             finalPrice();
+//             fees();   
+//     }   if(e.target.id === 'excelium') {
+//             document.getElementById('unitPrice').value = 15400;
+//             document.getElementById('installFee').value = .16;
+//             totalPrice();
+//             finalPrice();
+//             fees();
+//     }
+// });
+
+
+ // commercial totals
+
+ const product = document.getElementById('products');
+ product.addEventListener('change', (e) => {
+        if(e.target.id === 'standard') {
+            document.getElementById('unitPrice').value = 7565;
+            document.getElementById('installFee').value = .1;
+            totalPrice(); 
+            finalPrice();
+            fees()
+    }
+});
+
+ const premProduct = document.getElementById('products');
+ premProduct.addEventListener('change', (e) => {
+        if(e.target.id === 'premium') {
+            document.getElementById('unitPrice').value = 12345;
+            document.getElementById('installFee').value = .13;
+            totalPrice();
+            finalPrice();
+            fees()
+        } 
+    });
+ const exProduct = document.getElementById('products');
+ exProduct.addEventListener('change', (e) => {
+        if(e.target.id === 'excelium') {
+            document.getElementById('unitPrice').value = 15400;
+            document.getElementById('installFee').value = .16;
+            totalPrice();
+            finalPrice();
+            fees();
+        } 
+    });
+
+
+    const unitPrice = document.getElementById('unitPrice');
+    const total = document.getElementById('totalPrice');
+    const installFee = document.getElementById('installFee');
+    const final = document.getElementById('finalPrice');
+
+     function totalPrice() { 
+        total.value = elevatorAmount.value * unitPrice.value;
+    }
+    
+    
+    
+    function finalPrice() {
+        final.value = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', currencyDisplay: 'narrowSymbol'}).format((elevatorAmount.value * unitPrice.value) + (total.value * installFee.value))
+    }
+
+    function fees() {
+         installFee.value = installFee.value * total.value;
+     }
+
+
+
+   const numApt = document.getElementById("number-of-apartments-input");
+   const numFloors = document.getElementById("number-of-floors-input");
+   numApt.addEventListener('input' , resElevators )
+   numFloors.addEventListener('input' , resElevators )
+
+    function resElevators(){
+   let apt = document.getElementById("number-of-apartments-input").value;
+   let floors = document.getElementById("number-of-floors-input").value;
+    if(apt && floors) {
+        let avgapt = Math.ceil(parseInt(apt) / parseInt(floors));
+        let shaft= Math.ceil(avgapt / 6) 
+        let addcol = Math.ceil(floors/ 20)
+        let result= addcol * shaft
+        elevatorAmount.value = result  
+    }
+}; 
+
+
+//  const levels = document.getElementById("number-of-floors-input");
+//  const basement = document.getElementById("number-of-basements-input");
+//  const occup = document.getElementById('corp-max-occupancy-input');
+//  levels.addEventListener('input' , corpElevators );
+//  basement.addEventListener('input' , corpElevators);
+
+    function corpElevators() {
+        let levels = document.getElementById("number-of-floors-input").value;
+        let occup = document.getElementById('corp-max-occupancy-input').value;
+        let basement = document.getElementById("number-of-basements-input").value;
+        let occuptotal = (Number(basement) + Number(levels)) * (Number(occup) / 1000);
+        let stories = (Number(levels) + Number(basement));
+        let elevatorcolumns = Math.ceil(stories/20);
+        let ePercol = Math.ceil(Number(occuptotal) / Number(elevatorcolumns));
+        let results = Number(ePercol) * Number(elevatorcolumns);
+            elevator_Amount.value = Math.ceil(results)
+     }
+
+
+
+
+
+
+
+// function corpElevators() {
+//     const tenants = document.getElementById('corp-max-occupancy-input').value
+//     const corpfloors = document.getElementById('number-of-floors-input').value
+//     const corpbasements = document.getElementById('number-of-basements-input').value
+//     if (tenants && corp_floors && corp_basements) {
+//         let tenantsTotal = tenants * corpfloors + corpbasements;
+//         let elevatorAmountBefore = Math.floor(tenantsTotal / 1000);
+//         let columns = Math.ceil(parsInt(corpfloors)) + parseInt(corpbasements) / 20;
+//         let ele_per_column = Math.ceil(elevatorAmountBefore / columns);
+//         elevator_Amount.value = parseInt(elev_per_column) * parseInt(columns);
+    
+//     }
+
+// };
+
+
+
+
+
+
+
+    </script>  
+
+</html>
